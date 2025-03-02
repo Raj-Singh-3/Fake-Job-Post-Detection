@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import JobForm from './components/JobForm';
 import JobResult from './components/JobResult';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
+import realFake from "./Images/flat-employment-agency-search-new-employees-hire_88138-802-removebg-preview.png";
 import './styles/CompleteBackend.css';
 
 function CompleteBackend() {
@@ -11,7 +13,14 @@ function CompleteBackend() {
 
   return (
     <div className="completeBackend">
-      <Navbar />
+      {/* <Navbar /> */}
+      <div className='outer-container'>
+      <div className='header'>
+      <h1>Job Post Analyzer</h1>
+      <p>AI-Powered Job Scam Detector – Stay Safe, Stay Smart!Protects job seekers from scams & phishing attempts.Saves time by filtering out unreliable job listings.Ensures a safer, smarter job search experience.</p>
+      </div>
+      <img src={realFake}></img>
+      </div>
       <main>
         <JobForm 
           setJobData={setJobData}
@@ -30,8 +39,8 @@ function CompleteBackend() {
         )}
         {jobData && <JobResult jobData={jobData} />}
       </main>
+      
     </div>
   );
 }
-
 export default CompleteBackend;

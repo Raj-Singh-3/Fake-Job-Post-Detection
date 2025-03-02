@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const JobResult = ({ jobData }) => {
     if (!jobData) {
       return null;

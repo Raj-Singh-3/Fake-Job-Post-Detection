@@ -20,14 +20,20 @@
 // 
 
 
-
-
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { SignIn, SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import {
+  SignIn,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import "./styles/App.css"; // Import the CSS file
 import Home from "./components/Home";
+import CompleteBackend from "./CompleteBackend";
+import AboutUs from "./AboutUs";
 
 export default function App() {
   return (
@@ -43,15 +49,21 @@ export default function App() {
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/aboutus" className="nav-link">About Us</Link>
-          <Link to="/admin" className="nav-link">Admin</Link>
-          <Link to="/contactus" className="nav-link">Contact Us</Link>
+          <SignedIn>
+          <Link to="/admin" className="nav-link">User Dashboard</Link>
+          </SignedIn>
+          {/* Show "Analyze Post" only when user is signed in */}
+          <SignedIn>
+            <Link to="/analyzepost" className="nav-link">Analyze Post</Link>
+          </SignedIn>
+          <Link to="/contactus" className="nav-link">Dark/Light</Link>
         </div>
 
         {/* Authentication section */}
         <div className="auth-section">
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="get-started-button">SignIn</button>
+              <button className="get-started-button">Sign In</button>
             </SignInButton>
           </SignedOut>
           <SignedIn>
@@ -62,10 +74,10 @@ export default function App() {
 
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home></Home>} />
-        <Route path="/aboutus" element={<h1>About Us</h1>} />
-        <Route path="/admin" element={<h1>Admin Panel</h1>} />
-        <Route path="/contactus" element={<h1>Contact Us</h1>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/aboutus" element={<AboutUs></AboutUs>} />
+        <Route path="/admin" element={<h1>User dashborad</h1>} />
+        {/* <Route path="/contactus" element={<h1>Contact Us</h1>} /> */}
         <Route
           path="/dashboard"
           element={
@@ -74,10 +86,19 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/analyzepost"
+          element={
+            <ProtectedRoute>
+              <CompleteBackend />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
 }
+
 // import React from "react";
 // import CompleteBackend from "./CompleteBackend";
 

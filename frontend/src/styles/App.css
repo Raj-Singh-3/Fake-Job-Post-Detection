@@ -86,6 +86,10 @@ main {
   margin-top: 80px; /* To avoid content being hidden behind the fixed navbar */
 }
 
+.dark-light{
+  margin-top: -2.7%;
+  height: 5%;
+}
 /* Responsive styles */
 @media (max-width: 768px) {
   .navbar {

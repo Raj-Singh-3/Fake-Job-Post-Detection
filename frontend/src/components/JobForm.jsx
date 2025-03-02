@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -27,7 +29,7 @@ const JobForm = ({ setJobData, setLoading, setError }) => {
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="url">Job URL</label>
+          <label htmlFor="url">Enter Job URL or paste a job post</label>
           <input
             id="url"
             type="text"
@@ -37,7 +39,7 @@ const JobForm = ({ setJobData, setLoading, setError }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="jobPost">Or Paste Job Post</label>
+          {/* <label htmlFor="jobPost">Or Paste Job Post</label> */}
           <textarea
             id="jobPost"
             placeholder="Paste job posting content here"
