@@ -1,0 +1,15 @@
+.results-container{
+    margin-top: 5%;
+    background-color: #242424;
+}
+.results-container h2{
+    color: white;
+    padding-left: 40%;
+    
+}
+.results-grid h3{
+ color:white;
+}
+.result-item p{
+    color: azure;
+}

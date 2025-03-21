@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import axios from 'axios';
@@ -39,7 +38,6 @@ const JobForm = ({ setJobData, setLoading, setError }) => {
           />
         </div>
         <div className="form-group">
-          {/* <label htmlFor="jobPost">Or Paste Job Post</label> */}
           <textarea
             id="jobPost"
             placeholder="Paste job posting content here"

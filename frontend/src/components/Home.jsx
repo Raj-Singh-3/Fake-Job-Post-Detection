@@ -1,6 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import "../styles/Home.css"; // Import the CSS file for the Home component
+import {
+  SignIn,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Home = () => {
   return (
@@ -11,7 +18,11 @@ const Home = () => {
           Protect yourself from fraudulent job postings with our advanced
           detection system. Get started today and secure your career!
         </p>
-        <button className="cta-button">Get Started</button>
+        <SignedOut>
+            <SignInButton mode="modal">
+              <button className="get-started-button">Get Started</button>
+            </SignInButton>
+          </SignedOut>
       </div>
       <div className="welcome-image">
           <img 
